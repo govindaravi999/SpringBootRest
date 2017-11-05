@@ -15,7 +15,8 @@ stages {
      sh "mvn clean install"
 	 sh "mvn cobertura:cobertura"
 	 	
-	 //step $class: 'hudson.tasks.junit.JUnitResultArchiver', testResults: 'target/surefire-reports/*.xml'
+    step([$class: 'ArtifactArchiver', artifacts: '**/*.jar', fingerprint: true])	
+    step $class: 'hudson.tasks.junit.JUnitResultArchiver', testResults: 'target/surefire-reports/*.xml'
    
    }
    
@@ -41,8 +42,7 @@ post {
 
   always{
  
-   step([$class: 'ArtifactArchiver', artifacts: '**/*.jar', fingerprint: true])		
-           step $class: 'hudson.tasks.junit.JUnitResultArchiver', testResults: 'target/surefire-reports/*.xml'
+  print "in always"
    
   }
    success{
