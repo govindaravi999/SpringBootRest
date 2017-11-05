@@ -1,6 +1,6 @@
 pipeline{
 
-agent any
+agent builder
 
 stages {
 
@@ -26,7 +26,7 @@ stages {
    steps{
      
 	 
-	 sh "java  -jar  -Dserver.port=8585 target/SpringBootRest-0.0.5-SNAPSHOT.jar"
+	 sh "java  -jar -Dserver.address=52.87.166.12 -Dserver.port=8585 target/SpringBootRest-0.0.5-SNAPSHOT.jar"
    
    }
   
