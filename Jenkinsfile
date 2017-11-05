@@ -27,7 +27,7 @@ stages {
    
    steps{
      
-	 
+	 sh "ls -ltr"
 	 //sh "java  -jar -Dserver.address=52.87.166.12 -Dserver.port=8585 target/SpringBootRest-0.0.5-SNAPSHOT.jar"
    
    }
