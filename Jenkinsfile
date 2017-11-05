@@ -11,6 +11,10 @@ stages {
    
    steps{
      sh "mvn clean install"
+	 sh "mvn cobertura:cobertura"
+           step([$class: 'ArtifactArchiver', artifacts: '**/atdbatch-parent*', fingerprint: true])		
+           step $class: 'hudson.tasks.junit.JUnitResultArchiver', testResults: 'target/surefire-reports/*.xml'
+   
    }
   
   }

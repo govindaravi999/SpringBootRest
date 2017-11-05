@@ -94,10 +94,10 @@ public class ImageServiceTest {
         List<ImageCount> listCount=new ArrayList<ImageCount>();
         
        
-        	listCount.add(new ImageCount("https://www.facebook.com","Pending"));
+        	//listCount.add(new ImageCount("https://www.facebook.com","Pending"));
         	listCount.add(new ImageCount("http://www.eenadu.net","Pending"));
-        	listCount.add(new ImageCount("https://www.sakshi.com","Pending"));
-        	listCount.add(new ImageCount("https://www.xoom.com/","Pending"));
+        	//listCount.add(new ImageCount("https://www.sakshi.com","Pending"));
+        	//listCount.add(new ImageCount("https://www.xoom.com/","Pending"));
         	return listCount;
        
     	
@@ -120,10 +120,10 @@ public class ImageServiceTest {
     	 List<String> listCount=new ArrayList<String>();
          
          
-     	listCount.add("https://www.facebook.com");
+     	//listCount.add("https://www.facebook.com");
      	listCount.add("http://www.eenadu.net");
-     	listCount.add("https://www.sakshi.com");
-     	listCount.add("https://www.xoom.com/");
+     	//listCount.add("https://www.sakshi.com");
+     	//listCount.add("https://www.xoom.com/");
     	
     	ImageUrlRequest request=new ImageUrlRequest();
     	request.setUrl(listCount);
