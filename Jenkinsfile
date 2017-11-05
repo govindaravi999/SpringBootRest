@@ -16,6 +16,19 @@ stages {
 	 step $class: 'hudson.tasks.junit.JUnitResultArchiver', testResults: 'target/surefire-reports/*.xml'
    
    }
+   
+   
+     stage("Deploy ") {
+   agent {
+      label "builder"
+   }
+   
+   steps{
+     
+	 
+	 sh "java  -jar  -Dserver.port=8585 target/SpringBootRest-0.0.5-SNAPSHOT.jar"
+   
+   }
   
   }
 
