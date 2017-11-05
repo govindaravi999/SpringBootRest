@@ -41,7 +41,7 @@ post {
 
   always{
    archiveArtifacts artifacts: 'target/*.jar', fingerprint:true
-   JUnitResultArchiver results: 'target/surefire-reports/*.xml'
+   
   }
    success{
     print "success"
