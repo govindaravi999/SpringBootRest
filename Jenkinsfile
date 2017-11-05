@@ -6,7 +6,7 @@ stages {
 
   stage("Build Articat") {
    agent {
-      label "Builder"
+      label "builder"
    }
    
    steps{
