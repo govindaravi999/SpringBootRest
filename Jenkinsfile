@@ -28,8 +28,7 @@ stages {
    
    steps{
      
-	 sh "ls -ltr"
-	 //sh "java  -jar -Dserver.address=52.87.166.12 -Dserver.port=8585 target/SpringBootRest-0.0.5-SNAPSHOT.jar"
+	 sh "docker run hello-world"
    
    }
   
@@ -47,6 +46,8 @@ post {
   }
    success{
     print "success"
+	
+	  emailext attachLog: true, body: "Check console output at ${env.BUILD_URL} to view the results.<br>", mimeType: 'text/html', subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - Failure", to: 'govind487@gmail.com'
    }
   failure{
   
