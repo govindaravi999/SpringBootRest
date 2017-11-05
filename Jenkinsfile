@@ -40,7 +40,9 @@ stages {
 post {
 
   always{
-   archiveArtifacts artifacts: '**/.jar', fingerprint:true
+ 
+   step([$class: 'ArtifactArchiver', artifacts: '**/*.jar', fingerprint: true])		
+           step $class: 'hudson.tasks.junit.JUnitResultArchiver', testResults: 'target/surefire-reports/*.xml'
    
   }
    success{
