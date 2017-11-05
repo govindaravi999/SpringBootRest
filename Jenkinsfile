@@ -14,8 +14,8 @@ stages {
    steps{
      sh "mvn clean install"
 	 sh "mvn cobertura:cobertura"
-	 step([$class: 'ArtifactArchiver', artifacts: '**/*.jar', fingerprint: true])		
-	 step $class: 'hudson.tasks.junit.JUnitResultArchiver', testResults: 'target/surefire-reports/*.xml'
+	 	
+	 //step $class: 'hudson.tasks.junit.JUnitResultArchiver', testResults: 'target/surefire-reports/*.xml'
    
    }
    
@@ -28,7 +28,7 @@ stages {
    steps{
      
 	 
-	 sh "java  -jar -Dserver.address=52.87.166.12 -Dserver.port=8585 target/SpringBootRest-0.0.5-SNAPSHOT.jar"
+	 //sh "java  -jar -Dserver.address=52.87.166.12 -Dserver.port=8585 target/SpringBootRest-0.0.5-SNAPSHOT.jar"
    
    }
   
@@ -40,7 +40,8 @@ stages {
 post {
 
   always{
-  deleteDir()
+   archiveArtifacts artifacts: 'target/*.jar', fingerprint:true
+   JUnitResultArchiver testResults: 'target/surefire-reports/*.xml'
   }
    success{
     print "success"
