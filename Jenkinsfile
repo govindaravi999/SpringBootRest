@@ -40,7 +40,7 @@ stages {
   
   stage("funtional test ") {
    agent {
-     docker 'openjdk:8u121-jre'
+     docker 'openjdk:8u151-jre'
    }
    
    steps{
