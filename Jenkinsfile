@@ -37,6 +37,19 @@ stages {
    }
   
   }
+  
+  stage("funtional test ") {
+   agent {
+     docker 'openjdk:8u121-jre'
+   }
+   
+   steps{
+     sh  "curl http://172.17.0.2:8585/api/imageCount/1"
+	 
+   
+   }
+  
+  }
 
 
 
