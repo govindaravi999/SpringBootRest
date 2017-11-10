@@ -30,9 +30,9 @@ stages {
    }
    
    steps{
-     sh  "docker login -u govind487 -p Govind251@"
-	 sh "docker pull govind487/spingrestbootexample"
-	 sh "docker run -i -t govind487/spingrestbootexample"
+     sh  "sudo docker login -u govind487 -p Govind251@"
+	 sh "sudo docker pull govind487/spingrestbootexample"
+	 sh "sudo docker run -i -t govind487/spingrestbootexample"
    
    }
   
