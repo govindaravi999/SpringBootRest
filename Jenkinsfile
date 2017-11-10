@@ -16,8 +16,8 @@ stages {
 	 sh "mvn cobertura:cobertura"
 	 sh "docker build -t spingrestboot ."
 	 sh "docker login -u govind487 -p Govind251@"
-     sh "docker tag myspring govind487/spingrestboot"
-     sh "docker push govind487/spingrestboot"
+     sh "docker tag myspring1 spingrestbootExample"
+     sh "docker push spingrestbootExample"
 	
     step([$class: 'ArtifactArchiver', artifacts: '**/*.jar', fingerprint: true])	
     step $class: 'hudson.tasks.junit.JUnitResultArchiver', testResults: 'target/surefire-reports/*.xml'
@@ -27,12 +27,13 @@ stages {
    }
      stage("Deploy ") {
    agent {
-      label "builder"
+      label "deploy"
    }
    
    steps{
-     
-	 sh "docker run -i -t spingrestboot "
+     sh  "docker login -u govind487 -p Govind251@"
+	 sh "docker pull myspring1 spingrestbootExample"
+	 sh "docker run -i -t myspring1/spingrestbootExample "
    
    }
   
