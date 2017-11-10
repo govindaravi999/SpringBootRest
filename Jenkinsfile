@@ -1,7 +1,7 @@
 pipeline{
 
 agent {
-  label any
+  label "deploy"
  }
 
 stages {
