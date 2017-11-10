@@ -32,7 +32,7 @@ stages {
    steps{
      sh  "sudo docker login -u govind487 -p Govind251@"
 	 sh "sudo docker pull govind487/spingrestbootexample"
-	 sh "sudo docker run govind487/spingrestbootexample"
+	 sh "sudo docker run govind487/spingrestbootexample &"
    
    }
   
