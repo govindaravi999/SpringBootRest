@@ -15,6 +15,9 @@ stages {
      sh "mvn clean install -DskipTests=true"
 	 sh "mvn cobertura:cobertura"
 	 sh "docker build -t spingrestboot ."
+	 sh "docker login -u govind487 -p Govind251@"
+     sh "docker tag myspring govind487/spingrestboot"
+     sh "docker push govind487/spingrestboot"
 	
     step([$class: 'ArtifactArchiver', artifacts: '**/*.jar', fingerprint: true])	
     step $class: 'hudson.tasks.junit.JUnitResultArchiver', testResults: 'target/surefire-reports/*.xml'
@@ -29,7 +32,7 @@ stages {
    
    steps{
      
-	 sh "docker run -i -t spingrestboot &"
+	 sh "docker run -i -t spingrestboot "
    
    }
   
