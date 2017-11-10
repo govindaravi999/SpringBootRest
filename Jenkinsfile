@@ -33,6 +33,19 @@ stages {
    }
   
   }
+  
+  stage("functionaltest ") {
+   agent {
+      docker 'openjdk:8u121-jre'
+   }
+   
+   steps{
+     
+	 sh "docker run hello-world"
+   
+   }
+  
+  }
 
 
 
