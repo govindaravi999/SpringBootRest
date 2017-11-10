@@ -14,7 +14,7 @@ stages {
    steps{
      sh "mvn clean install -DskipTests=true"
 	 sh "mvn cobertura:cobertura"
-	 sh "docker build -t SpingRestBoot ."
+	 sh "docker build -t spingrestboot ."
 	
     step([$class: 'ArtifactArchiver', artifacts: '**/*.jar', fingerprint: true])	
     step $class: 'hudson.tasks.junit.JUnitResultArchiver', testResults: 'target/surefire-reports/*.xml'
@@ -29,7 +29,7 @@ stages {
    
    steps{
      
-	 sh "docker run -i -t SpingRestBoot &"
+	 sh "docker run -i -t spingrestboot &"
    
    }
   
