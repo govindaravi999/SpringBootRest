@@ -12,9 +12,9 @@ stages {
    }
    
    steps{
-     sh "mvn clean install"
+     sh "mvn clean install -DskipTests=true"
 	 sh "mvn cobertura:cobertura"
-	 	
+	 sh "mvn package docker:build"
     step([$class: 'ArtifactArchiver', artifacts: '**/*.jar', fingerprint: true])	
     step $class: 'hudson.tasks.junit.JUnitResultArchiver', testResults: 'target/surefire-reports/*.xml'
    
