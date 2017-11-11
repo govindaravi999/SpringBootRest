@@ -51,6 +51,7 @@ stages {
    steps{
      sh  "echo hello"
 	 sh "git tag SpringBootRest-${env.MAJOR_VERSION}.${env.BUILD_NUMBER}"
+	 sh "git push origin SpringBootRest-${env.MAJOR_VERSION}.${env.BUILD_NUMBER} "
 	 
 	
 }
