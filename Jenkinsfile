@@ -1,6 +1,10 @@
-pipeline{
-
+ipeline{
 agent none
+
+ environment {
+    MAJOR_VERSION = 1
+  }
+
 
 stages {
 
@@ -10,9 +14,12 @@ stages {
    }
    
    steps{
-     sh "mvn clean install"
+     sh "mvn clean install -DskipTests=true"
 	 sh "mvn cobertura:cobertura"
-	 	
+	 sh "docker build -t govind487/spingrestbootexample ."
+	 sh "docker login -u govind487 -p Govind251@"
+     sh "docker push govind487/spingrestbootexample"
+	
     step([$class: 'ArtifactArchiver', artifacts: '**/*.jar', fingerprint: true])	
     step $class: 'hudson.tasks.junit.JUnitResultArchiver', testResults: 'target/surefire-reports/*.xml'
    
@@ -21,29 +28,35 @@ stages {
    }
      stage("Deploy ") {
    agent {
-      label "builder"
+      label "deploy"
    }
    
    steps{
-     
-	 sh "docker run hello-world"
+     sh  "sudo docker login -u govind487 -p Govind251@"
+	 sh "sudo docker pull govind487/spingrestbootexample"
+	 sh "sudo docker run govind487/spingrestbootexample &"
    
    }
   
   }
   
-  stage("functionaltest ") {
+  stage("funtional test ") {
+  
+  
    agent {
-      docker 'openjdk:8u121-jre'
+    
+     docker 'openjdk:8u151-jre'
    }
    
    steps{
-     
-	 sh "docker run hello-world"
+     sh  "echo hello"
+	 
+	
+}
    
    }
   
-  }
+  
 
 
 
