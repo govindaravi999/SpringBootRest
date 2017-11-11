@@ -49,7 +49,7 @@ stages {
    }
    
    steps{
-     sh  "curl http://172.17.0.2:8585/api/imageCount/1"
+     sh  "echo hello"
 	 
 	
 }
