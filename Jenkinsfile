@@ -1,5 +1,5 @@
 pipeline{
-agent none
+age
 
 stages {
 
@@ -39,8 +39,8 @@ stages {
   
   
    agent {
-    label "deploy"
     
+     docker 'openjdk:8u151-jre'
    }
    
    steps{
