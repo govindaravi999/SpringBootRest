@@ -1,5 +1,5 @@
 pipeline{
-age
+agent none
 
 stages {
 
