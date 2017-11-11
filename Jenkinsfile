@@ -40,7 +40,7 @@ stages {
   
    agent {
     label "deploy"
-     docker 'openjdk:8u151-jre'
+    
    }
    
    steps{
