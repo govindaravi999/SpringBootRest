@@ -1,8 +1,5 @@
 pipeline{
-
-agent {
-        label "deploy"
-    }
+agent none
 
 stages {
 
@@ -54,7 +51,7 @@ stages {
    
    }
   
-  }
+  
 
 
 
