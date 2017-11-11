@@ -14,8 +14,8 @@ public  class ThreadPoolTestConfig {
     	System.out.println("taskExecutor starting");
         ThreadPoolTaskExecutor t = new ThreadPoolTaskExecutor();
         t.setCorePoolSize(10);
-        t.setMaxPoolSize(100);
-        t.setQueueCapacity(50);
+        t.setMaxPoolSize(50);
+        t.setQueueCapacity(10);
         t.setAllowCoreThreadTimeOut(true);
         t.setKeepAliveSeconds(120);
         return t;

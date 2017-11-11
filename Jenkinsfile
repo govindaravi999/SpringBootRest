@@ -55,6 +55,32 @@ stages {
 }
    
    }
+   
+   
+   
+   stage('Promote feature  Branch to Master') {
+      agent {
+        label 'builder'
+      }
+      when {
+        branch 'feature1'
+      }
+      steps {
+        echo "Stashing Any Local Changes"
+        sh 'git stash'
+        echo "Checking Out feature1 Branch"
+        sh 'git checkout feature1'
+        echo 'Checking Out Master Branch'
+        sh 'git pull origin'
+        sh 'git checkout master'
+        echo 'Merging feature1 into Master Branch'
+        sh 'git merge feature1'
+        echo 'Pushing to Origin Master'
+        sh 'git push origin master'
+        echo 'Tagging the Release'
+        sh "git tag springbootrest-${env.MAJOR_VERSION}.${env.BUILD_NUMBER}"
+        sh "git push origin springbootrest-${env.MAJOR_VERSION}.${env.BUILD_NUMBER}"
+      }
   
   
 
