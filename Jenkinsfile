@@ -90,7 +90,7 @@ stages {
 post {
 
   always{
- deleteDir()
+ 
   print "in always"
    
   }
@@ -100,7 +100,7 @@ post {
 	  emailext attachLog: true, body: "Check console output at ${env.BUILD_URL} to view the results.<br>", mimeType: 'text/html', subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - Failure", to: 'govind487@gmail.com'
    }
   failure{
-  
+ 
    print "failure"
   }
 
