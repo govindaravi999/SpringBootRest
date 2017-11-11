@@ -50,6 +50,7 @@ stages {
    
    steps{
      sh  "echo hello"
+	 sh "git tag SpringBootRest-${env.MAJOR_VERSION}.${env.BUILD_NUMBER}"
 	 
 	
 }
