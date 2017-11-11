@@ -73,6 +73,7 @@ stages {
         echo 'Checking Out Master Branch'
         sh 'git pull origin'
         sh 'git checkout master'
+		sh 'git pull'
         echo 'Merging feature1 into Master Branch'
         sh 'git merge feature1'
         echo 'Pushing to Origin Master'
