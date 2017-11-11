@@ -46,9 +46,10 @@ stages {
    
    steps{
     
-	 
+	script{
 	 docker.image('openjdk:8u151-jre').inside() {
  sh  "curl http://172.17.0.2:8585/api/imageCount/1"
+}
 }
    
    }
