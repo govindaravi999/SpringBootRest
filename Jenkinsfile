@@ -15,7 +15,7 @@ stages {
   
    
    steps{
-     sayHello 'govind'
+   
      sh "mvn clean install -DskipTests=true"
 	 sh "mvn cobertura:cobertura"
 	 //sh "docker build -t govind487/spingrestbootexample ."
