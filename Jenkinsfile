@@ -8,10 +8,6 @@ agent none
 
 stages {
 
-  stage("Build Articat") {
-   agent {
-      label "builder"
-   }
   
   stage("sayHello"){
   agent any
@@ -21,6 +17,12 @@ stages {
   
   }
   }
+
+  stage("Build Articat") {
+   agent {
+      label "builder"
+   }
+
    
    steps{
     
