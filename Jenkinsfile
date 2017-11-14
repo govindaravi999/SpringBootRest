@@ -12,6 +12,9 @@ stages {
    agent {
       label "builder"
    }
+   steps{
+    sayHello 'govind'
+   }
    
    steps{
      sh "mvn clean install -DskipTests=true"
