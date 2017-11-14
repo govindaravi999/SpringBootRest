@@ -13,6 +13,14 @@ stages {
       label "builder"
    }
   
+  stage("sayHello"){
+  agent any
+  
+  steps{
+  sayHello 'how are you '
+  
+  }
+  }
    
    steps{
     
